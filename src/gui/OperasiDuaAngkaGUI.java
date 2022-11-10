@@ -63,7 +63,15 @@ public class OperasiDuaAngkaGUI extends javax.swing.JFrame {
 
         op.setText(" ");
 
+        angkaKeduaTF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                angkaKeduaTFKeyTyped(evt);
+            }
+        });
+
         jLabel2.setText("=");
+
+        hasilTF.setEditable(false);
 
         btnTambah.setText("Tambah");
         btnTambah.addActionListener(new java.awt.event.ActionListener() {
@@ -166,11 +174,15 @@ public class OperasiDuaAngkaGUI extends javax.swing.JFrame {
 
     private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
         // TODO add your handling code here:
-        op.setText("+");
-        double angkaPertama = Double.parseDouble(angkaPertamaTF.getText());
-        double angkaKedua = Double.parseDouble(angkaKeduaTF.getText());
-        double hasil = angkaPertama + angkaKedua;
-        hasilTF.setText(String.valueOf(hasil));
+        if (angkaPertamaTF.getText().equals(null) || angkaKeduaTF.getText().equals(null)){
+            JOptionPane.showMessageDialog(null, "Input Tidak Boleh Kosong", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else {
+            op.setText("+");
+            double angkaPertama = Double.parseDouble(angkaPertamaTF.getText());
+            double angkaKedua = Double.parseDouble(angkaKeduaTF.getText());
+            double hasil = angkaPertama + angkaKedua;
+            hasilTF.setText(String.valueOf(hasil));
+        }
     }//GEN-LAST:event_btnTambahActionPerformed
 
     private void btnKurangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKurangActionPerformed
@@ -204,6 +216,11 @@ public class OperasiDuaAngkaGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         filterKeyType(evt);
     }//GEN-LAST:event_angkaPertamaTFKeyTyped
+
+    private void angkaKeduaTFKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_angkaKeduaTFKeyTyped
+        // TODO add your handling code here:
+        filterKeyType(evt);
+    }//GEN-LAST:event_angkaKeduaTFKeyTyped
 
     /**
      * @param args the command line arguments
