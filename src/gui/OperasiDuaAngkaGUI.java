@@ -5,6 +5,9 @@
  */
 package gui;
 
+import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author nidza
@@ -16,6 +19,15 @@ public class OperasiDuaAngkaGUI extends javax.swing.JFrame {
      */
     public OperasiDuaAngkaGUI() {
         initComponents();
+    }
+    
+    private void filterKeyType(java.awt.event.KeyEvent evt){
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c) || (c==KeyEvent.VK_BACK_SPACE) || (c==KeyEvent.VK_DELETE)){
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "Masukan Hanya Angka (0-9)!");
+            evt.consume();
+        }
     }
 
     /**
@@ -42,6 +54,12 @@ public class OperasiDuaAngkaGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Muhammad Edwan Nidzar"));
+
+        angkaPertamaTF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                angkaPertamaTFKeyTyped(evt);
+            }
+        });
 
         op.setText(" ");
 
@@ -181,6 +199,11 @@ public class OperasiDuaAngkaGUI extends javax.swing.JFrame {
         double hasil = angkaPertama / angkaKedua;
         hasilTF.setText(String.valueOf(hasil));
     }//GEN-LAST:event_btnBagiActionPerformed
+
+    private void angkaPertamaTFKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_angkaPertamaTFKeyTyped
+        // TODO add your handling code here:
+        filterKeyType(evt);
+    }//GEN-LAST:event_angkaPertamaTFKeyTyped
 
     /**
      * @param args the command line arguments
