@@ -33,29 +33,49 @@ public class OperasiDuaAngkaGUI extends javax.swing.JFrame {
         angkaKeduaTF = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         hasilTF = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        btnTambah = new javax.swing.JButton();
+        btnKurang = new javax.swing.JButton();
+        btnKali = new javax.swing.JButton();
+        btnBagi = new javax.swing.JButton();
+        btnKeluar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Muhammad Edwan Nidzar"));
 
-        op.setText("+");
+        op.setText(" ");
 
         jLabel2.setText("=");
 
-        jButton1.setText("Tambah");
+        btnTambah.setText("Tambah");
+        btnTambah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTambahActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Kurang");
+        btnKurang.setText("Kurang");
+        btnKurang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKurangActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Kali");
+        btnKali.setText("Kali");
+        btnKali.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKaliActionPerformed(evt);
+            }
+        });
 
-        jButton4.setText("Bagi");
+        btnBagi.setText("Bagi");
+        btnBagi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBagiActionPerformed(evt);
+            }
+        });
 
-        jButton5.setText("Keluar");
+        btnKeluar.setText("Keluar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -75,15 +95,15 @@ public class OperasiDuaAngkaGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(hasilTF, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(btnTambah)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
+                        .addComponent(btnKurang)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3)
+                        .addComponent(btnKali)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4)
+                        .addComponent(btnBagi)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton5)))
+                        .addComponent(btnKeluar)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -98,11 +118,11 @@ public class OperasiDuaAngkaGUI extends javax.swing.JFrame {
                     .addComponent(hasilTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5))
+                    .addComponent(btnTambah)
+                    .addComponent(btnKurang)
+                    .addComponent(btnKali)
+                    .addComponent(btnBagi)
+                    .addComponent(btnKeluar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -125,6 +145,42 @@ public class OperasiDuaAngkaGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
+        // TODO add your handling code here:
+        op.setText("+");
+        double angkaPertama = Double.parseDouble(angkaPertamaTF.getText());
+        double angkaKedua = Double.parseDouble(angkaKeduaTF.getText());
+        double hasil = angkaPertama + angkaKedua;
+        hasilTF.setText(String.valueOf(hasil));
+    }//GEN-LAST:event_btnTambahActionPerformed
+
+    private void btnKurangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKurangActionPerformed
+        // TODO add your handling code here:
+        op.setText("-");
+        double angkaPertama = Double.parseDouble(angkaPertamaTF.getText());
+        double angkaKedua = Double.parseDouble(angkaKeduaTF.getText());
+        double hasil = angkaPertama - angkaKedua;
+        hasilTF.setText(String.valueOf(hasil));
+    }//GEN-LAST:event_btnKurangActionPerformed
+
+    private void btnKaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKaliActionPerformed
+        // TODO add your handling code here:
+        op.setText("X");
+        double angkaPertama = Double.parseDouble(angkaPertamaTF.getText());
+        double angkaKedua = Double.parseDouble(angkaKeduaTF.getText());
+        double hasil = angkaPertama * angkaKedua;
+        hasilTF.setText(String.valueOf(hasil));
+    }//GEN-LAST:event_btnKaliActionPerformed
+
+    private void btnBagiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBagiActionPerformed
+        // TODO add your handling code here:
+        op.setText("/");
+        double angkaPertama = Double.parseDouble(angkaPertamaTF.getText());
+        double angkaKedua = Double.parseDouble(angkaKeduaTF.getText());
+        double hasil = angkaPertama / angkaKedua;
+        hasilTF.setText(String.valueOf(hasil));
+    }//GEN-LAST:event_btnBagiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -164,12 +220,12 @@ public class OperasiDuaAngkaGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField angkaKeduaTF;
     private javax.swing.JTextField angkaPertamaTF;
+    private javax.swing.JButton btnBagi;
+    private javax.swing.JButton btnKali;
+    private javax.swing.JButton btnKeluar;
+    private javax.swing.JButton btnKurang;
+    private javax.swing.JButton btnTambah;
     private javax.swing.JTextField hasilTF;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel op;
