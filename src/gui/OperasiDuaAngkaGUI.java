@@ -102,6 +102,11 @@ public class OperasiDuaAngkaGUI extends javax.swing.JFrame {
         });
 
         btnKeluar.setText("Keluar");
+        btnKeluar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKeluarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -187,29 +192,41 @@ public class OperasiDuaAngkaGUI extends javax.swing.JFrame {
 
     private void btnKurangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKurangActionPerformed
         // TODO add your handling code here:
-        op.setText("-");
-        double angkaPertama = Double.parseDouble(angkaPertamaTF.getText());
-        double angkaKedua = Double.parseDouble(angkaKeduaTF.getText());
-        double hasil = angkaPertama - angkaKedua;
-        hasilTF.setText(String.valueOf(hasil));
+        if (angkaPertamaTF.getText().equals(null) || angkaKeduaTF.getText().equals(null)){
+            JOptionPane.showMessageDialog(null, "Input Tidak Boleh Kosong", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else {
+            op.setText("-");
+            double angkaPertama = Double.parseDouble(angkaPertamaTF.getText());
+            double angkaKedua = Double.parseDouble(angkaKeduaTF.getText());
+            double hasil = angkaPertama - angkaKedua;
+            hasilTF.setText(String.valueOf(hasil));
+        }
     }//GEN-LAST:event_btnKurangActionPerformed
 
     private void btnKaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKaliActionPerformed
         // TODO add your handling code here:
-        op.setText("X");
-        double angkaPertama = Double.parseDouble(angkaPertamaTF.getText());
-        double angkaKedua = Double.parseDouble(angkaKeduaTF.getText());
-        double hasil = angkaPertama * angkaKedua;
-        hasilTF.setText(String.valueOf(hasil));
+        if (angkaPertamaTF.getText().equals(null) || angkaKeduaTF.getText().equals(null)){
+            JOptionPane.showMessageDialog(null, "Input Tidak Boleh Kosong", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else {
+            op.setText("X");
+            double angkaPertama = Double.parseDouble(angkaPertamaTF.getText());
+            double angkaKedua = Double.parseDouble(angkaKeduaTF.getText());
+            double hasil = angkaPertama * angkaKedua;
+            hasilTF.setText(String.valueOf(hasil));
+        }
     }//GEN-LAST:event_btnKaliActionPerformed
 
     private void btnBagiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBagiActionPerformed
         // TODO add your handling code here:
-        op.setText("/");
-        double angkaPertama = Double.parseDouble(angkaPertamaTF.getText());
-        double angkaKedua = Double.parseDouble(angkaKeduaTF.getText());
-        double hasil = angkaPertama / angkaKedua;
-        hasilTF.setText(String.valueOf(hasil));
+        if (angkaPertamaTF.getText().equals(null) || angkaKeduaTF.getText().equals(null)){
+            JOptionPane.showMessageDialog(null, "Input Tidak Boleh Kosong", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else {
+            op.setText("/");
+            double angkaPertama = Double.parseDouble(angkaPertamaTF.getText());
+            double angkaKedua = Double.parseDouble(angkaKeduaTF.getText());
+            double hasil = angkaPertama / angkaKedua;
+            hasilTF.setText(String.valueOf(hasil));
+        }
     }//GEN-LAST:event_btnBagiActionPerformed
 
     private void angkaPertamaTFKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_angkaPertamaTFKeyTyped
@@ -221,6 +238,14 @@ public class OperasiDuaAngkaGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         filterKeyType(evt);
     }//GEN-LAST:event_angkaKeduaTFKeyTyped
+
+    private void btnKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKeluarActionPerformed
+        // TODO add your handling code here:
+        int c = JOptionPane.showConfirmDialog(null, "Yakin Ingin Keluar", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+        if (c == JOptionPane.YES_OPTION){
+            System.exit(0);
+        }
+    }//GEN-LAST:event_btnKeluarActionPerformed
 
     /**
      * @param args the command line arguments
